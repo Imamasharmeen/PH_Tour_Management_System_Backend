@@ -1,0 +1,13 @@
+--------- Project set up ------------
+
+
+git init
+git checkout -b development 
+git add . 
+git commit -m"Git initialized." 
+git checkout -b project-setup 
+npm init -y 
+npm install -D typescript tsc --init 
+npm i express mongoose zod jsonwebtoken cors dotenv 
+npm i -D ts-node-dev @types/express @types/cors @types/dotenv @types/jsonwebtoken
+

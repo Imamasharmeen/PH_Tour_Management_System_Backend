@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
+import userRoutes from "./app/modules/user/user.route";
 
 // Create an Express application
  const app = express() 
@@ -7,6 +8,7 @@ import cors from "cors";
 // Middleware 
 app.use(cors())
 app.use(express.json()) 
+app.use("/api/v1/user", userRoutes)
 
 // Routes
 app.get("/", (req: Request, res: Response) => {
