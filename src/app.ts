@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import userRoutes from "./app/modules/user/user.route";
+import { router } from "./routes";
+import { globalErrorHandler } from "./errors/globalErrorHandler";
+import { notFound } from "./middlewares/notFound";
 
 // Create an Express application
  const app = express() 
@@ -8,7 +10,10 @@ import userRoutes from "./app/modules/user/user.route";
 // Middleware 
 app.use(cors())
 app.use(express.json()) 
-app.use("/api/v1/user", userRoutes)
+
+
+// Main route
+app.use("/api/v1", router)
 
 // Routes
 app.get("/", (req: Request, res: Response) => {
@@ -16,5 +21,8 @@ app.get("/", (req: Request, res: Response) => {
         message: "Welcome to Tour Management System Backend"
     })
 })
+
+app.use(notFound);
+app.use(globalErrorHandler)
 export default app;
 

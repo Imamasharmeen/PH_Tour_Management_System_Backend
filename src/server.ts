@@ -1,11 +1,12 @@
-// src/server.ts
+/* eslint-disable no-console */
+
 
 import app from "./app";
 import mongoose from "mongoose";
 import { env_config } from "./config/env.config";
 
 // let server: Server;
-// let myage;
+
 const startServer = async () => {
   try {
     await mongoose.connect(env_config.mongodb_url);

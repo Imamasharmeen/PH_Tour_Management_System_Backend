@@ -35,7 +35,7 @@ const userSchema = new Schema<iUser>(
     auth: [authProviderSchema],
     role: {
       type: String,
-      enum: Object.values(eUserRoles),//  Object.values er mane ki ??????????
+      enum: Object.values(eUserRoles),
       default: eUserRoles.USER,
     },
     // bookings: ,
